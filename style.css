@@ -1,0 +1,91 @@
+body {
+    background-color: bisque;
+}
+.heading {
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 80px;
+    color: rgb(238, 148, 30);
+}
+.cal-box {
+    display: flex;
+    flex-flow: column;
+    background-color: rgb(240, 255, 241);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px;
+    margin: 200 px;
+    border-radius: 5px;
+    width: 400px;
+    height: 700px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(60, 36, 7);
+
+}
+.display{
+    flex: box;
+    padding: 1px;
+    height: 150px;
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 10px;
+    border-style: none;
+    border-width: 2px;
+    border-color: aqua;
+    background-color: rgb(50, 50, 50)
+}
+
+.button-box{
+    display: flex;
+    flex-flow: column;
+    height: 600px;
+    margin-top: 20px;
+    border-style:unset;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: rgb(239, 211, 174);
+    gap: 30px;
+    
+}
+
+.clear-delete{
+    display: flex;
+    padding: 10px;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border-style: none;
+    border-width: 2px;
+    border-color: aqua;
+    justify-content: space-between;
+}
+
+#clear, #delete{
+    font-size: x-large;
+    height: 70px;
+    width: 165px;
+    background-color: rgb(238, 148, 30);
+}
+
+.numbers-row-1, .numbers-row-2,.numbers-row-3, .numbers-row-4 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn {
+    height: 70px;
+    width: 70px;
+    background-color: rgb(236, 76, 103);
+    font-size: x-large;
+}
