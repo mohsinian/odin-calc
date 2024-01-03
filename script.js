@@ -14,23 +14,38 @@ display.style.justifyContent = 'flex-end';
 display.style.alignItems = 'flex-end';
 
 if(clearMode) {
-    const initialZero = document.createElement('div');
+    var initialZero = document.createElement('div');
+    initialZero.className = 'zero';
     initialZero.style.fontSize = '70px';
     initialZero.style.color = 'white';
-    initialZero.textContent = '0';
+    initialZero.textContent = currentString;
     display.append(initialZero);
 }
 
 
 
 clear.addEventListener('click', () => {
-    const showZero = document.createElement('div');
-    showZero.style.fontSize = '70px';
-    showZero.style.color = 'white';
-    showZero.textContent = currentString;
+    currentString = '0';
+    initialZero.textContent = currentString;
     if(!clearMode) 
     {
-        display.append(showZero);
         clearMode = true;
     }
+})
+
+let a = '';
+let b = '';
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        clearMode = false;
+        if(currentString==='0') {
+            currentString='';
+        }
+        currentString += button.textContent;
+        if(currentString.length <=8)
+        {
+            initialZero.textContent = currentString
+        }
+    })
 })
