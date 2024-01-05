@@ -4,10 +4,12 @@ const equalsButton = document.getElementById('equals');
 const pointButton = document.getElementById('point');
 const display = document.querySelector('.display');
 const clear = document.getElementById('clear');
+const del = document.getElementById('delete');
 
 let pastString ='';
 let currentString = '0';
 let clearMode = true;
+var equalsPressed = false;
 
 display.style.display = 'flex';
 display.style.justifyContent = 'flex-end';
@@ -49,6 +51,7 @@ let b;
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         clearMode = false;
+        equalsPressed = true;
         if(currentString==='0') {
             currentString='';
         }
@@ -58,6 +61,24 @@ numberButtons.forEach(button => {
             initialZero.textContent = currentString
         }
     })
+})
+
+pointButton.addEventListener('click', () => {
+    if(currentString.includes('.')) {
+        return;
+    }
+    currentString += '.';
+    initialZero.textContent = currentString;
+})
+
+del.addEventListener('click', () => {
+    if(currentString.length === 1) {
+        currentString = '0';
+        initialZero.textContent = currentString;
+    } else {
+        currentString = currentString.slice(0, -1);
+        initialZero.textContent = currentString;
+    }
 })
 
 var operator;
@@ -77,9 +98,10 @@ operationButtons.forEach(button => {
 })
 
 equalsButton.addEventListener("click", () => {
-  if (currentString.length !== 0) {
+  if (currentString.length !== 0 && equalsPressed) {
     b = (+currentString);
     upperElement.textContent += currentString;
+    equalsPressed = false;
     if (operator === "+") {
       add();
     } else if (operator === "-") {
