@@ -116,8 +116,17 @@ equalsButton.addEventListener("click", () => {
 
 var result;
 
+function checkForDecimal(s) {
+    if(s.includes('.') && s.length > 8) {
+        result = result.toFixed(3);
+    }
+    else return;
+}
+
 function add() {
     result = a + b;
+    currentString = `${result}`;
+    checkForDecimal(currentString);
     currentString = `${result}`;
     initialZero.textContent = currentString;
 }
@@ -125,11 +134,15 @@ function add() {
 function subtract() {
     result = a - b;
     currentString = `${result}`;
+    checkForDecimal(currentString);
+    currentString = `${result}`;
     initialZero.textContent = currentString;
 }
 
 function multiply() {
     result = a * b;
+    currentString = `${result}`;
+    checkForDecimal(currentString);
     currentString = `${result}`;
     initialZero.textContent = currentString;
 }
@@ -137,6 +150,8 @@ function multiply() {
 function divide() {
   if (b !== 0) {
     result = a / b;
+    currentString = `${result}`;
+    checkForDecimal(currentString);
     currentString = `${result}`;
     initialZero.textContent = currentString;
   }
